@@ -19,7 +19,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping(value = "/angels")
 public class AngelsController {
 
-    private final
+    private
     AngelsHandler AngelsHandler;
 
     @Autowired AngelsController(AngelsHandler AngelsHandler){
@@ -44,9 +44,15 @@ public class AngelsController {
     }
 
     @RequestMapping(value = "/{id}", method = PATCH)
-    public ResponseEntity<Angels>  updateAngelsByID(@RequestBody AngelsDTO angelsDTO){
+    public ResponseEntity<Angels>  updateAngelsByID(@RequestBody AngelsDTO angelsDTO[]){
+        AngelsHandler.updateAngels(angelsDTO[1]);
+        return new ResponseEntity(angelsDTO, HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(value = "/", method = PATCH)
+    public ResponseEntity<Angels>  updateMultipleAngels(@RequestBody AngelsDTO angelsDTO){
         AngelsHandler.updateAngels(angelsDTO);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity(angelsDTO, HttpStatus.ACCEPTED);
     }
 
 

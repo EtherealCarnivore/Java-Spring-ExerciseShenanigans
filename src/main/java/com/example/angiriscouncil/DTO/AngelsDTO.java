@@ -17,6 +17,9 @@ public class AngelsDTO {
 
     private int kills;
 
+    public AngelsDTO() {
+    }
+
     public AngelsDTO(int ID, String weapon, String element, String allegiance, int reincarnations, int kills) {
         this.ID = ID;
         this.weapon = weapon;

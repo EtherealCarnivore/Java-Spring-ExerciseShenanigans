@@ -12,7 +12,7 @@ public interface AngelsRepository extends CrudRepository<Angels, Integer> {
     ArrayList<Angels> getAll();
 
 
-    @Query(value = "select distinct id from aaaa h where h.id=id", nativeQuery = true)
+    @Query(value = "select distinct id,alias,weapon,element,special_ability,allegiance,weakness,health,mana,damage,kills,reincarnations from angels a where a.id=id", nativeQuery = true)
     ArrayList<Angels> getAngel(@Param("id") int id);
 
 

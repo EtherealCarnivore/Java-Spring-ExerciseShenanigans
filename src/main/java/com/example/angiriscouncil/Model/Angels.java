@@ -5,14 +5,14 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "aaaa")
+@Table(name = "angels")
 public class Angels {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "firstName")
-    private String firstName;
+    @Column(name = "alias")
+    private String alias;
 
     @Column(name = "weapon")
     private String weapon;
@@ -20,11 +20,21 @@ public class Angels {
     @Column(name = "element")
     private String element;
 
+    @Column(name = "special_ability")
+
+    private String special_ability;
+
     @Column(name = "allegiance")
     private String allegiance;
 
+    @Column(name ="weakness")
+    private String weakness;
+
     @Column(name = "health")
     private int health;
+
+    @Column(name = "mana")
+    private int mana;
 
     @Column(name = "damage")
     private int damage;
@@ -35,22 +45,21 @@ public class Angels {
     @Column(name = "reincarnations")
     private int reincarnations;
 
-    @Column(name = "isArchangel")
-    private boolean isArchangel;
-
     public Angels() {
     }
 
-    public Angels(String firstName, String weapon, String element, String allegiance, int health, int damage, int kills, int reincarnations, boolean isArchangel) {
-        this.firstName = firstName;
+    public Angels(String alias, String weapon, String element, String special_ability, String allegiance, String weakness, int health, int mana, int damage, int kills, int reincarnations) {
+        this.alias = alias;
         this.weapon = weapon;
         this.element = element;
+        this.special_ability = special_ability;
         this.allegiance = allegiance;
+        this.weakness = weakness;
         this.health = health;
+        this.mana = mana;
         this.damage = damage;
         this.kills = kills;
         this.reincarnations = reincarnations;
-        this.isArchangel = isArchangel;
     }
 
     public int getId() {
@@ -61,12 +70,12 @@ public class Angels {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getAlias() {
+        return alias;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 
     public String getWeapon() {
@@ -85,6 +94,14 @@ public class Angels {
         this.element = element;
     }
 
+    public String getSpecial_ability() {
+        return special_ability;
+    }
+
+    public void setSpecial_ability(String special_ability) {
+        this.special_ability = special_ability;
+    }
+
     public String getAllegiance() {
         return allegiance;
     }
@@ -93,12 +110,28 @@ public class Angels {
         this.allegiance = allegiance;
     }
 
+    public String getWeakness() {
+        return weakness;
+    }
+
+    public void setWeakness(String weakness) {
+        this.weakness = weakness;
+    }
+
     public int getHealth() {
         return health;
     }
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 
     public int getDamage() {
@@ -123,13 +156,5 @@ public class Angels {
 
     public void setReincarnations(int reincarnations) {
         this.reincarnations = reincarnations;
-    }
-
-    public boolean isArchangel() {
-        return isArchangel;
-    }
-
-    public void setArchangel(boolean archangel) {
-        isArchangel = archangel;
     }
 }
