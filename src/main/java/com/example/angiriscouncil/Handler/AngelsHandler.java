@@ -16,22 +16,25 @@ public class AngelsHandler {
 
 
     // THIS IS FOR THE NIKOLA TO LOOK AT ---- BOOOOY
-    //    public ModelMapper modelMapper() {
-//        return new ModelMapper();
+        public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
+
+//    private interface ISave Save;
+//
+//        private AngelsDTO convertToDto(AngelsDTO angels) {
+//        AngelsDTO angelsDTO = modelMapper().map(angels, AngelsDTO.class);
+//        angelsDTO.setAllegiance(angels.getAllegiance());
+//                angelsDTO.setElement(angels.getElement());
+//                angelsDTO.setKills(angels.getKills());
+//                angelsDTO.setWeapon(angels.getWeapon());
+//                angelsDTO.setReincarnations(angels.getReincarnations());
+//
+//        return angelsDTO;
+
+        // to remove Handler entirely and use Mapper
+//
 //    }
-//
-//
-////    private AngelsDTO convertToDto(AngelsDTO angels) {
-////        AngelsDTO angelsDTO = modelMapper().map(angels, AngelsDTO.class);
-////        angelsDTO.setAllegiance(angels.getAllegiance());
-////                angelsDTO.setElement(angels.getElement());
-////                angelsDTO.setKills(angels.getKills());
-////                angelsDTO.setWeapon(angels.getWeapon());
-////                angelsDTO.setReincarnations(angels.getReincarnations());
-////
-////        return angelsDTO;
-////
-////    }
 
     public ArrayList<Angels> getAll() {
 
@@ -49,6 +52,7 @@ public class AngelsHandler {
 
     public void updateAngels(AngelsDTO angelsDTO) {
         Angels angels = this.getAngel(angelsDTO.getID());
+        // without mega ifs
 
         if (    angelsDTO.getWeapon() != null
                 || angelsDTO.getElement() !=null
@@ -63,16 +67,15 @@ public class AngelsHandler {
             angels.setKills(angelsDTO.getKills());
 
             AngelsRepository.save(angels);
+
         }
 
     }
-//
+
 //    public void updateMultipleAngels(AngelsDTO angelsDTO) {
 //
-//        ArrayList<Angels> angels = AngelsRepository.getAll();
-//            AngelsRepository.save()
 //        }
-//
+
 
     public void deleteAngel ( int id){
         AngelsRepository.delete(this.getAngel(id));
